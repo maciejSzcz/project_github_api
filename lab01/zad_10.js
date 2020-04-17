@@ -1,5 +1,7 @@
+'use strict';
+
 const flatten = (arr) => {
-    return arr.flat()
+    return arr.flat();
 }
 
-console.log(flatten([[1,2,3], [4,6], 3]))
+console.log(flatten([[1,2,3], [4,6], 3]));

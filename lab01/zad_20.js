@@ -1,9 +1,11 @@
+'use strict';
+
 const addAndApply = (a, fun) => {
-    return fun(a) + a
+    return fun(a) + a;
 }
 
 const addFive = (a) => {
-    return a + 5
+    return a + 5;
 }
 
-console.log(addAndApply(5, addFive))
+console.log(addAndApply(5, addFive));

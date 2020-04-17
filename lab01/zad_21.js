@@ -1,9 +1,11 @@
+'use strict';
+
 const nameFunction = (fun) => {
-    return fun.name
+    return fun.name;
 }
 
 const nameOfRandomFunction = (a) => {
-    return `${a}.`
+    return `${a}.`;
 }
 
-console.log(nameFunction(nameOfRandomFunction))
+console.log(nameFunction(nameOfRandomFunction));

@@ -1,5 +1,7 @@
+'use strict';
+
 const isEmpty = (value) => {
-    return value == "" && (typeof value) == "string" ? true : false
+    return value == "" && (typeof value) == "string" ? true : false;
 }
 
-console.log(isEmpty(0))
+console.log(isEmpty(0));

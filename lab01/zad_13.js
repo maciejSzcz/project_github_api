@@ -1,5 +1,7 @@
+'use strict';
+
 const isString = (value) => {
-    return (typeof value) == "string" ? true : false  
+    return (typeof value) == "string" ? true : false;
 }
 
-console.log(isString("1"))
+console.log(isString("1"));

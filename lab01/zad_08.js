@@ -1,3 +1,5 @@
+'use strict';
+
 const mostFreq = (arr) => {
     return arr
         .sort((a, b) =>
@@ -6,4 +8,4 @@ const mostFreq = (arr) => {
         .pop();
 }
 
-console.log(mostFreq([1,1, 1, 1,2,3,4,5,6,6,6,8]))
+console.log(mostFreq([1,1, 1, 1,2,3,4,5,6,6,6,8]));

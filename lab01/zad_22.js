@@ -1,9 +1,11 @@
+'use strict';
+
 const gcd = (a, b) => {
     if(!b) {
-        return a
+        return a;
     }
 
-    return gcd(b, a % b)
+    return gcd(b, a % b);
 }
 
-console.log(gcd(12, 96))
+console.log(gcd(12, 96));

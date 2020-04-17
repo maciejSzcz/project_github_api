@@ -1,6 +1,8 @@
+'use strict';
+
 const isPrime = (num = undefined) => {
     if (isNaN(num) || num !== undefined) {
-        console.log("Błędny argument")
+        console.log("Błędny argument");
     }
 
     for(let i=2; i < num; i++)
@@ -10,4 +12,4 @@ const isPrime = (num = undefined) => {
     return num > 1;
 }
 
-console.log(isPrime(1))
+console.log(isPrime(1));
