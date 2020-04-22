@@ -2,20 +2,42 @@
 // zadanie 1
 const sum = (arr) => arr.reduce((a,b) => a + b)
 
-console.log(sum([1,2,3,4,5,6]))
-
-// zadanie 2
 const squareNonNegatives = (arr) => {
-    return arr.reduce((a,b) => {
-        a+b
-    })
+    return arr
+        .map(item => {
+            return item >= 0 ? item : 0
+        })
+        .reduce((a, b) => {
+            return a + b ** 2
+        }, 0)
 }
 
-console.log(squareNonNegatives([1,-2,-4, 5, 2, 5]))
-
-// zadanie 3
 const printIndexes = (arr) => {
     arr.reduce((a, b, index) => console.log(`${index-1}: ${b}`))
 }
 
+const countOccurences = (arr) => {
+    return arr.reduce((acc, current) => {
+        !acc[current] ? acc[current] = 1 : acc[current] += 1
+
+        return acc;
+    }, [])
+}
+
+const convertObject = (arr) => {
+    return arr.reduce((object, item)=> {
+        object[item.id] = item;
+        return object
+    }, {})
+}
+
+
+console.log(sum([1, 2, 3, 4, 5, 6]))
+console.log(squareNonNegatives([1, -2, -4, 5, 2, 5]))
 printIndexes([1, -2, -4, 5, 2, 5])
+console.log(countOccurences(['js', 'react', 'js', 'angular', 'angular', 'js']))
+console.log(convertObject([
+    { id: 'abc', name: 'Ala' },
+    { id: 'def', name: 'Tomek' },
+    { id: 'ghi', name: 'Jan' }
+]))
