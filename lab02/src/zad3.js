@@ -10,10 +10,11 @@ const sortedByVolatility = _.sortBy(lp3, 'change');
 const dropN = (arr, n) => {
     return _.dropRight(arr, n);
 };
-const first = _.take(lp3, 1);
+const first = _.first(lp3);
+const fmtString = (arr) => `${arr['author']}: ${arr['song']}`;
 
 
 console.log(queenSongs);
 console.log(mostVolatilePF);
 console.log(dropN(sortedByVolatility, 10));
-console.log(first);
+console.log(fmtString(first))
