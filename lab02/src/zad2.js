@@ -68,9 +68,9 @@ const findElement = (itemArr, fun) => {
             prev.push(item);
         }
         return prev;
-    }, [])
+    }, []);
 
-    return result === [] ? undefined : result.join('')
+    return result === [] ? undefined : result.join('');
 }
 
 console.log(calculateTotal(wishlist));
