@@ -7,7 +7,7 @@
 const arr = ["Pies", "Kot", "Królik", "Papuga", "Małpa"];
 const [pies, kot, krolik, papuga, malpa] = arr;
 
-// console.log(pies, krolik);
+// console.log(pies, krolik); // Pies Królik
 
 // 2
 
@@ -18,13 +18,13 @@ const book1 = {
 
 const {
     title1 = "-",
-        author1 = "-",
-        year1 = 1967,
+    author1 = "-",
+    year1 = 1967,
 } = book1;
 
-// console.log(title1);
-// console.log(author1);
-// console.log(year1);
+// console.log(title1); // Mistrz i Małgorzata
+// console.log(author1); // Michaił Bułhakow
+// console.log(year1); // 1967
 
 // 3
 
@@ -64,11 +64,26 @@ const { title3, ...bookWithoutTitle } = book3;
 // Director: Frank Darabont 
 // Year: 1999
 // Genre: Dramat
-const movie1 = {}
+const movie1 = {
+    Country: "USA",
+    Title: "Zielona Mila",
+    Director: "Frank Darabont", 
+    Year: 1999,
+    Genre: "Dramat"
+}
 
 // Następnie wykorzystując zabieg przedstawiony w powyższych przykładach zmodyfikuj obiekt tak, aby po wyświetleniu obiektu dostać następujący output:
 // console.log(newMovie1);
 // Output: { title: 'Zielona Mila', director: 'Frank Darabont' }
+
+const {Title, Director} = movie1;
+const newMovie1 = {
+    Title,
+    Director
+}
+
+console.log(newMovie1)
+
 
 // 5
 // Stwórz teraz bardziej skomplikowany obiekt zawierający m.in tablicę i inny obiekt. Powiedzmy, że zawiera np. 
@@ -77,12 +92,33 @@ const movie1 = {}
 // Country: Francja
 // Year: 2011
 // Actors: Philippe: François Cluzet, Dris: Omar Sy, Yvonne: Anne Le Ny, ...
-const movie2 = {}
+const movie2 = {
+    title: "Nietykalni",
+    directors: ["Olivier Nakache", "Éric Toledano"],
+    country: "Francja",
+    year: 2011,
+    actors: {
+        Philippe: "François Cluzet",
+        Dris: "Omar Sy",
+        Yvonne: "Anne Le Ny"
+    }
+}
 
 //Następnie odwzoruj wygląd stworzonej struktury obiektu i wykonaj na nim poniższe operacje 
+/* 
+const {title, directors: [director1], actors: {Dris: DrisRole}} = movie2
+ */
 
-// console.log(title); // Nietykalni
-// console.log(director1); // Olivier Nakache
-// console.log(DrisRole); // Omar Sy
+//console.log(title); // Nietykalni
+//console.log(director1); // Olivier Nakache
+//console.log(DrisRole); // Omar Sy
 
 //Zmodyfikuj teraz swój kod, aby zawierał domyślne wartości, jeśli którakolwiek z własności filmu nie została podana.
+
+const { title = "-", directors: [director1 = "-"] = "-", actors: { Dris: DrisRole = "-" } = "-" } = movie2
+
+
+
+console.log(title); // Nietykalni
+console.log(director1); // Olivier Nakache
+console.log(DrisRole); // Omar Sy
