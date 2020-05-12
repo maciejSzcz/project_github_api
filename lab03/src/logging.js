@@ -10,16 +10,10 @@ const when = (fn) => {
     };
 }
 
+const printIf = when(output);
+
 function output(txt) {
     console.log(txt);
-}
-
-function printIf(shouldPrintIt) {
-    return function(msg) {
-        if (shouldPrintIt(msg)) {
-            output(msg);
-        }
-    };
 }
 
 function isShortEnough(str) {
@@ -33,8 +27,7 @@ function isLongEnough(str) {
 var msg1 = "Hello";
 var msg2 = msg1 + " World";
 
-/* printIf(isShortEnough)(msg1); // Hello
+printIf(isShortEnough)(msg1); // Hello
 printIf(isShortEnough)(msg2);
 printIf(isLongEnough)(msg1);
-printIf(isLongEnough)(msg2); // Hello World */
-when(output)(isShortEnough)(msg1)
+printIf(isLongEnough)(msg2); // Hello World 

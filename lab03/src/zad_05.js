@@ -6,5 +6,5 @@ const arr = [
 ];
 
 arr.reduce((acc, cur) => {
-    return cur.forEach((el) => typeof curLocal === Array ? el.length )
+    return 
 }, 0)
