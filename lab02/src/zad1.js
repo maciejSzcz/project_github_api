@@ -4,9 +4,9 @@ const sum = (arr) => arr.reduce((a,b) => a + b);
 
 const squareNonNegatives = (arr) => {
     return arr
-        .filter(item => {
-            return item >= 0;
-        })
+        .reduce((a, b) => {
+            return b > 0 ? [...a, b] : a;
+        }, [])
         .reduce((a, b) => {
             return a + b ** 2;
         }, 0);
