@@ -31,7 +31,7 @@ const calculateTotal = (itemArr) => {
 
 const priceArr = (itemArr) => {
     return itemArr.reduce((prev, item) => {
-        prev.push(item.netto);
+        prev = [...prev, item.netto];
         return prev;
     }, []);
 }
@@ -40,22 +40,20 @@ const callback = x => x.name + ' ' + x.netto;
 
 const newArray = (itemArr, fun) => {
     const result = itemArr.reduce((prev, item) => {
-        prev.push(fun(item));
+        prev = [...prev, fun(item)];
         return prev;
     }, []);
     return result;
 };
 
 const mapArray = (itemArr, fun) => {
-    return itemArr.map(item => {
-        return fun(item);
-    });
+    return itemArr.map(item => fun(item));
 };
 
 const filterWithReduce = (itemArr, fun) => {
     return itemArr.reduce((prev, item) => {
         if(fun(item)) {
-            prev.push(item);
+            prev = [...prev, item];
         }
 
         return prev;
@@ -65,7 +63,7 @@ const filterWithReduce = (itemArr, fun) => {
 const findElement = (itemArr, fun) => {
     const result = itemArr.reduce((prev, item) => {
         if(fun(item)) {
-            prev.push(item);
+            prev = [...prev, item];
         }
         return prev;
     }, []);
