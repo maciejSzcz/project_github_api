@@ -41,16 +41,16 @@ const welcome5Times = () => {
 //welcome5Times()
 // Zadanie 2.5. Napisz funkcję, która przyjmuje trzy argumenty: funkcję i dwie liczby. Funkcja będzie wywołała podaną w argumencie funkcję co x milisekund i automatycznie zatrzyma się po upływie y milisekund. 
 
-const callnTimesEveryMs = (fn, timeBetween, times) => {
-    let counter = times;
+const callnTimesEveryMs = (fn, timeBetween, time) => {
+    let counter = time;
     const interval = setInterval(() => {
         fn()
-        counter--;
-        if (counter === 0) {
+        counter = counter - timeBetween;
+        if (counter <= 0) {
             clearInterval(interval)
         }
     }, timeBetween);
 }
 
-// callnTimesEveryMs(() => console.log("funkcja"), 2000, 5)
+callnTimesEveryMs(() => console.log("funkcja"), 2000, 4000)
   
