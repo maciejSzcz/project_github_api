@@ -82,7 +82,7 @@ const newMovie1 = {
     Director
 }
 
-console.log(newMovie1)
+console.log(newMovie1);
 
 
 // 5
@@ -115,7 +115,7 @@ const {title, directors: [director1], actors: {Dris: DrisRole}} = movie2
 
 //Zmodyfikuj teraz swój kod, aby zawierał domyślne wartości, jeśli którakolwiek z własności filmu nie została podana.
 
-const { title = "-", directors: [director1 = "-"] = "-", actors: { Dris: DrisRole = "-" } = "-" } = movie2
+const { title = "-", directors: [director1 = "-"] = "-", actors: { Dris: DrisRole = "-" } = "-" } = movie2;
 
 
 
