@@ -28303,7 +28303,7 @@ var listElement = function listElement(props) {
 
 var _default = listElement;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"App4.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"App5.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -28328,8 +28328,18 @@ var App = function App(props) {
   }, props.children);
 };
 
+var Input = function Input(props) {
+  var _useState = useState(""),
+      value = _useState.value,
+      setValue = _useState.setValue;
+
+  return /*#__PURE__*/_react.default.createElement("input", {
+    type: "text"
+  }, value);
+};
+
 (0, _reactDom.render)( /*#__PURE__*/_react.default.createElement(App, {
-  children: [(0, _elementListJSX.default)("gege"), (0, _elementListJSX.default)("tekst testowy"), Button]
+  children: [(0, _elementListJSX.default)("gege"), (0, _elementListJSX.default)("tekst testowy"), Button, /*#__PURE__*/_react.default.createElement(Input, null)]
 }), document.querySelector('.root'));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/elementListJSX":"components/elementListJSX.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -28535,5 +28545,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","App4.js"], null)
-//# sourceMappingURL=/App4.69b226ae.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","App5.js"], null)
+//# sourceMappingURL=/App5.68caa481.js.map
