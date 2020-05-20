@@ -28303,7 +28303,7 @@ var listElement = function listElement(props) {
 
 var _default = listElement;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"App2.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"App3.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -28324,7 +28324,7 @@ var Button = _react.default.createElement('button', {
 
 var App = _react.default.createElement('ul', {
   className: "newElement"
-}, /*#__PURE__*/_react.default.createElement("listElement", null), (0, _elementListJSX.default)("tekst testowy"), Button);
+}, (0, _elementListJSX.default)("gege"), (0, _elementListJSX.default)("tekst testowy"), Button);
 
 (0, _reactDom.render)(App, document.querySelector('.root'));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/elementListJSX":"components/elementListJSX.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -28531,5 +28531,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","App2.js"], null)
-//# sourceMappingURL=/App2.7928fe04.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","App3.js"], null)
+//# sourceMappingURL=/App3.4ef38f1d.js.map

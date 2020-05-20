@@ -7,7 +7,7 @@ const handleClick = () => {
 }
 
 const Button = React.createElement('button', { onClick: handleClick }, "hehe")
-const App = React.createElement('ul', {className: "newElement"}, <listElement />, listElement("tekst testowy"), Button)
+const App = React.createElement('ul', {className: "newElement"}, listElement("gege"), listElement("tekst testowy"), Button)
 
 
 render(App, document.querySelector('.root'));
