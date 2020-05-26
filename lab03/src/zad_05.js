@@ -5,6 +5,6 @@ const arr = [
     { key: 0, x: [1], y: [] }
 ];
 
-arr.reduce((acc, cur) => {
-    return 
-}, 0)
+console.log(arr.reduce((acc, cur) => {
+    return acc + Object.values(cur).map(x => x.length).reduce((acc2, cur2) => cur2 !== undefined ? acc2 + cur2 : acc2, 0)
+}, 0))
