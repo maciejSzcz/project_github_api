@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "babel": "./node_modules/.bin/babel src --out-dir build",
-    "dev": "parcel src/index.html",
+    "dev": "parcel src/index2.html",
     "linter": "eslint src/index.js"
   },
   "devDependencies": {
