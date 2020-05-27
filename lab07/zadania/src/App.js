@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentForm from './components/CommentForm'
+import './App.css'
 
 const App = () => {
   return (
