@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+
+
+.Wrapper {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Name {
+    color: #239a3b;
+}
+
+.RepoNumber {
+    color: #239a3b;
+    font-size: 1.5rem;
+}
