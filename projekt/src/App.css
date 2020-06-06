@@ -15,7 +15,13 @@
     color: #239a3b;
 }
 
-.RepoNumber {
+.Repo-Number {
     color: #239a3b;
     font-size: 1.5rem;
+}
+
+.Projects-Wrapper {
+    list-style: none;
+    display: grid;
+    
 }
