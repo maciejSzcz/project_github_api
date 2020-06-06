@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import {Formik, Field} from 'formik';
 
-function App(props) {
+function App() {
   const [popularProjects, setPopularProjects] = useState([])
+  const [filterByName, setFilterByName] = useState('')
 
 
 
@@ -17,19 +19,35 @@ function App(props) {
 
   }, [])
 
+  const handleSubmit = (e) => {
+    /* e.preventDefault() */
+    console.log("zmiana")
+    setFilterByName(e.filterByName)
+  }
+
 
   return (
     <div className="App">
       <div className="Wrapper">
         <p className="Name">Github Trending</p>
         <p className="RepoNumber">Most popular repositiories now are </p>
+        <Formik initialValues={{filterByName: ""}} onSubmit={handleSubmit}>
+          {(formProps) => (
+            <form onSubmit={formProps.handleSubmit}>
+              <Field name={"filterByName"} />
+              <button type={"submit"}>Search</button>
+            </form>
+          )}
+        </Formik>
         <ul>
           {
             popularProjects
               .map(project => (
-                <li key={project.name}>{project.name}</li>
+                <li key={project.name} value={project.name}>{project.name}</li>
               ))
+              .filter(project => filterByName === "" ? project : project.props.value.includes(filterByName))
           }
+
         </ul>
       </div>
     </div>
