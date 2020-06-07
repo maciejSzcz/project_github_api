@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Wrapper">
+      <div className="Data-Wrapper">
         <p className="Name">GitHub Repo search</p>
         <p className="Repo-Number">Search GitHub projects</p>
         <SearchForm setSearchName={setSearchName} setSearchLanguage={setSearchLanguage} />
@@ -40,7 +40,10 @@ function App() {
           viewLaterList={viewLaterList}
           setViewLaterList={setViewLaterList}
         />
-        <ViewLaterViewer viewLaterList={viewLaterList}/>
+      </div>
+      <div className="Local-Wrapper">
+        <p className="Name">View Later</p>
+        <ViewLaterViewer viewLaterList={viewLaterList} setViewLaterList={setViewLaterList}/>
       </div>
     </div>
   );

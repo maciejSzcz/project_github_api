@@ -9,6 +9,7 @@ const RepoItem = ({ project, popularProjects, viewLaterList, setViewLaterList })
 
     const handleChange = (e) => {
         const targetItem = popularProjects.filter((project) => project.name === e.target.name)[0];
+        targetItem.detailedView = false;
 
         if(e.target.checked === true) {
             viewLaterList !== []

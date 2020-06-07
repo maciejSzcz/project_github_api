@@ -1,14 +1,19 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
 }
 
-
-.Wrapper {
+.Data-Wrapper {
     font-size: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.Local-Wrapper {
+    font-size: 2rem;
 }
 
 .Name {
@@ -20,8 +25,7 @@
     font-size: 1.5rem;
 }
 
-.Projects-Wrapper {
+.Projects-Wrapper, .ViewLater-Wrapper {
     list-style: none;
     display: grid;
-    
 }

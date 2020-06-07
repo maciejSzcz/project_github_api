@@ -16,7 +16,7 @@ const RepoViewer = ({popularProjects, filterByName, viewLaterList, setViewLaterL
                   <RepoItem key={project.name} project={project} popularProjects={popularProjects} viewLaterList={viewLaterList} setViewLaterList={setViewLaterList} />
                 ))
                 .filter((project) =>
-                    filterByName === ""
+                  filterByName === ""
                     ? project
                     : project.props.value.includes(filterByName)
                 )
