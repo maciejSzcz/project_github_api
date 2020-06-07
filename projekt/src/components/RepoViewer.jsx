@@ -1,40 +1,36 @@
 import React from "react";
-import { useFormik } from "formik";
-import Button from "@material-ui/core/Button";
+/* import { useFormik } from "formik"; */
+import PropTypes from "prop-types";
+/* import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid"; */
+import RepoItem from "./RepoItem.jsx"
 
-const RepoViewer = ({popularProjects, filterByName}) => {
-  /* const formik = useFormik({
-    initialValues: {
-      searchName: "",
-      searchLanguage: "javascript",
-    },
-    onSubmit: (e) => {
-      setSearchName(e.searchName);
-      setSearchLanguage(e.searchLanguage);
-    },
-  }); */
-
+const RepoViewer = ({popularProjects, filterByName, viewLaterList, setViewLaterList}) => {
   return (
     <form>
         <ul className="Projects-Wrapper">
             {popularProjects
                 .map((project) => (
-                    <>
-                    <input type="checkbox" />
-                    <li key={project.name} value={project.name}>
-                        {project.name}, {project.created_at}, 
-                        <Button variant="contained" href={project.html_url}>link</Button>
-                    </li>
-                    </>
+                  <RepoItem key={project.name} project={project} popularProjects={popularProjects} viewLaterList={viewLaterList} setViewLaterList={setViewLaterList} />
                 ))
                 .filter((project) =>
                     filterByName === ""
                     ? project
                     : project.props.value.includes(filterByName)
-                )}
+                )
+              }
         </ul>
     </form>
   );
 };
+
+RepoViewer.propTypes = {
+  popularProjects: PropTypes.array,
+  filterByName: PropTypes.string,
+  viewLaterList: PropTypes.array,
+  setViewLaterList: PropTypes.func,
+}
 
 export default RepoViewer;
