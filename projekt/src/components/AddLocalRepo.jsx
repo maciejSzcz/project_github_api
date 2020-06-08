@@ -4,6 +4,8 @@ import {useFormik} from "formik";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import DeleteIcon from "@material-ui/icons/Delete";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
     const formik = useFormik({
@@ -12,6 +14,7 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
             forks_count: 0,
             stargazers_count: 0,
             description: "",
+            language: "javascript",
         },
         onSubmit: (e, { resetForm }) => {
             const newRepo = {
@@ -19,8 +22,12 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
                 forks_count: e.forks_count,
                 stargazers_count: e.stargazers_count,
                 description: e.description,
+                owner: {
+                    login: 'none',
+                    avatar_url: '#',
+                },
             };
-
+            console.log(e.language)
             viewLaterList !== []
                 ? setViewLaterList([...viewLaterList, newRepo])
                 : setViewLaterList([newRepo]);
@@ -36,6 +43,7 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
                 name="name"
                 value={formik.values.name}
                 onChange={formik.handleChange}
+                required
             />
             <TextField
                 label="Forks"
@@ -54,7 +62,19 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
                 name="description"
                 value={formik.values.description}
                 onChange={formik.handleChange}
+                data-testid="required-input"
+                required
             />
+            <Select
+                name="language"
+                className="Language-Select"
+                value={formik.values.language}
+                onChange={formik.handleChange}
+            >
+                <MenuItem value="javascript" label="javascript">javascript</MenuItem>
+                <MenuItem value="python" label="python">python</MenuItem>
+                <MenuItem value="scala" label="scala">scala</MenuItem>
+            </Select>
             <Button
                 variant="contained"
                 type={"submit"}

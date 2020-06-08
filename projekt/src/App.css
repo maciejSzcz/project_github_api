@@ -29,6 +29,10 @@
     color: #239a3b;
 }
 
+.Language-Select {
+    height: 100%;
+}
+
 .Repo-Number {
     color: #239a3b;
     font-size: 1.5rem;
