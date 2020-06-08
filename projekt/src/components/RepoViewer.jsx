@@ -7,20 +7,30 @@ import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid"; */
 import RepoItem from "./RepoItem.jsx"
 
-const RepoViewer = ({popularProjects, filterByName, viewLaterList, setViewLaterList}) => {
+const RepoViewer = ({popularProjects, setPopularProjects, filterByName, viewLaterList, setViewLaterList}) => {
   return (
     <form>
         <ul className="Projects-Wrapper">
-            {popularProjects
-                .map((project) => (
-                  <RepoItem key={project.name} project={project} popularProjects={popularProjects} viewLaterList={viewLaterList} setViewLaterList={setViewLaterList} />
-                ))
-                .filter((project) =>
-                  filterByName === ""
-                    ? project
-                    : project.props.value.includes(filterByName)
-                )
-              }
+          <li className="Project-Item">
+            <p>View Later</p>
+            <p>Name</p>
+            <p>Forks</p>
+            <p>Stars</p>
+            <p>Link to github</p>
+          </li>
+          {popularProjects
+              .map((project) => (
+                <RepoItem 
+                  key={project.name}
+                  project={project}
+                  id={project.id}
+                  popularProjects={popularProjects}
+                  setPopularProjects={setPopularProjects}
+                  viewLaterList={viewLaterList}
+                  setViewLaterList={setViewLaterList} 
+                />
+              ))
+            }
         </ul>
     </form>
   );
@@ -28,6 +38,7 @@ const RepoViewer = ({popularProjects, filterByName, viewLaterList, setViewLaterL
 
 RepoViewer.propTypes = {
   popularProjects: PropTypes.array,
+  setPopularProjects: PropTypes.func,
   filterByName: PropTypes.string,
   viewLaterList: PropTypes.array,
   setViewLaterList: PropTypes.func,

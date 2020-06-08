@@ -10,12 +10,12 @@ const SearchLocal = ({ setFilterByName }) => {
     },
     onSubmit: (e) => {
       setFilterByName(e.filterByName);
-    },
+    }
   });
 
   return (
     <form onSubmit={formik.handleSubmit}>
-        <TextField name={"filterByName"} />
+        <TextField name={"filterByName"} value={formik.values.filterByName} onChange={formik.handleChange}  />
         <Button type={"submit"}>Search</Button>
     </form>
   );

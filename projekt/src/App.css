@@ -25,6 +25,17 @@
     font-size: 1.5rem;
 }
 
+.Projects-Wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.Project-Item {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+}
+
+
 .Projects-Wrapper, .ViewLater-Wrapper {
     list-style: none;
     display: grid;
