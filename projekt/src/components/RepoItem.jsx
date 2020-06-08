@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormik } from "formik";
+/* import { useFormik } from "formik"; */
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -45,6 +45,7 @@ const RepoItem = ({ project, popularProjects, setPopularProjects, viewLaterList,
 RepoItem.propTypes = {
     project: PropTypes.object,
     popularProjects: PropTypes.array,
+    setPopularProjects: PropTypes.func,
     viewLaterList: PropTypes.array,
     setViewLaterList: PropTypes.func
 };

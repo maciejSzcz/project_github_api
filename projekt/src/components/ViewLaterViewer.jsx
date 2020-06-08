@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
-import DeleteIcon from "@material-ui/icons/Delete";
+import Paper from "@material-ui/core/Paper";
 import AddLocalRepo from "./AddLocalRepo.jsx"
+import DetailedView from "./DetailedView.jsx"
 
 const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName}) => {
 
@@ -32,14 +33,16 @@ const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName}) => {
           })
           .map(item => (
             <li key={item.name}>
-              {item.name}
-              <Button variant="contained" data-value={item.name} onClick={handleClick}>toggle view</Button>
-              <Button variant="contained" data-value={item.name} color="secondary" startIcon={<DeleteIcon />} onClick={deleteItem}>delete</Button>
-              {
-                item.detailedView === true 
-                  ? <p>{item.stargazers_count}</p>
-                  : ""
-              }
+              <Paper variant="outlined">
+                {item.name}
+                <Button variant="contained" data-value={item.name} onClick={handleClick}>toggle view</Button>
+                {/* <Button variant="contained" data-value={item.name} color="secondary" startIcon={<DeleteIcon />} onClick={deleteItem}>delete</Button> */}
+                {
+                  item.detailedView === true 
+                    ? <DetailedView project={item} deleteItem={deleteItem} /> /* <p>{item.stargazers_count}</p> */
+                    : ""
+                }
+              </Paper>
             </li>
             )
           )    

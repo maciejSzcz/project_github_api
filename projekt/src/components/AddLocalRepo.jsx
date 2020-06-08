@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {useFormik} from "formik";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
     const formik = useFormik({
@@ -10,12 +11,14 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
             name: "",
             forks_count: 0,
             stargazers_count: 0,
+            description: "",
         },
         onSubmit: (e, { resetForm }) => {
             const newRepo = {
                 name: e.name,
                 forks_count: e.forks_count,
                 stargazers_count: e.stargazers_count,
+                description: e.description,
             };
 
             viewLaterList !== []
@@ -46,7 +49,27 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
                 value={formik.values.stargazers_count}
                 onChange={formik.handleChange}
             />
-            <Button type={"submit"}>Add</Button>
+            <TextField
+                label="Description"
+                name="description"
+                value={formik.values.description}
+                onChange={formik.handleChange}
+            />
+            <Button
+                variant="contained"
+                type={"submit"}
+                color="primary"
+            >
+                Add
+            </Button>
+            <Button
+                variant="contained"
+                color="secondary"
+                startIcon={<DeleteIcon />}
+                onClick={e => formik.resetForm()}
+            >
+                Clear
+            </Button>
         </form>
     )
 }
