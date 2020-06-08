@@ -5,6 +5,13 @@ import SearchForm from './components/SearchForm.jsx';
 import RepoViewer from './components/RepoViewer.jsx';
 import ViewLaterViewer from './components/ViewLaterViewer.jsx';
 import SearchLocal from './components/SearchLocal.jsx';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 function App() {
   const [popularProjects, setPopularProjects] = useState([]);
@@ -28,36 +35,50 @@ function App() {
   }, [searchName, searchLanguage, searchOrder])
 
   return (
-    <div className="App">
-      <div className="Data-Wrapper">
-        <p className="Name">GitHub Repo search</p>
-        <p className="Repo-Number">Search GitHub projects</p>
-        <SearchForm 
-          setSearchName={setSearchName}
-          setSearchLanguage={setSearchLanguage}
-          setSearchOrder={setSearchOrder}
-        />
-        
-        <RepoViewer 
-          popularProjects={popularProjects}
-          setPopularProjects={setPopularProjects}
-          filterByName={filterByName}
-          viewLaterList={viewLaterList}
-          setViewLaterList={setViewLaterList}
-        />
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <div className="Data-Wrapper">
+              <Link to="/view-later">
+                <Button variant="contained" color="primary">view later</Button>
+              </Link>
+              <p className="Name">GitHub Repo search</p>
+              <p className="Repo-Number">Search GitHub projects</p>
+              <SearchForm
+                setSearchName={setSearchName}
+                setSearchLanguage={setSearchLanguage}
+                setSearchOrder={setSearchOrder}
+              />
+
+              <RepoViewer
+                popularProjects={popularProjects}
+                setPopularProjects={setPopularProjects}
+                filterByName={filterByName}
+                viewLaterList={viewLaterList}
+                setViewLaterList={setViewLaterList}
+              />
+            </div>
+          </Route>
+          <Route path="/view-later">
+            <div className="Local-Wrapper">
+              <Link to="/">
+                <Button variant="contained" color="primary">Back to main view</Button>
+              </Link>
+              <p className="Name">View Later</p>
+              <SearchLocal
+                setFilterByName={setFilterByName}
+              />
+              <ViewLaterViewer
+                viewLaterList={viewLaterList}
+                setViewLaterList={setViewLaterList}
+                filterByName={filterByName}
+              />
+            </div>
+          </Route>
+        </Switch>
       </div>
-      <div className="Local-Wrapper">
-        <p className="Name">View Later</p>
-        <SearchLocal
-          setFilterByName={setFilterByName}
-        />
-        <ViewLaterViewer 
-          viewLaterList={viewLaterList}
-          setViewLaterList={setViewLaterList}
-          filterByName={filterByName}  
-        />
-      </div>
-    </div>
+    </Router>
   );
 }
 

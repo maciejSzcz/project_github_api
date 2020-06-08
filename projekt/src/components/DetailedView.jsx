@@ -32,7 +32,7 @@ const DetailedView = ({project, deleteItem}) => {
 }
 
 DetailedView.propTypes = {
-    project: PropTypes.array,
+    project: PropTypes.object,
     deleteItem: PropTypes.func,
 }
 

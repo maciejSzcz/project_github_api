@@ -1,11 +1,12 @@
 import React from "react";
-/* import { useFormik } from "formik"; */
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const RepoItem = ({ project, popularProjects, setPopularProjects, viewLaterList, setViewLaterList }) => {
+const RepoItem = ({ project, popularProjects, setPopularProjects, stagingList, setStagingList }) => {
+
+    
 
     const handleChange = (e) => {
         const targetItem = popularProjects.filter((project) => project.name === e.target.name)[0];
@@ -20,11 +21,13 @@ const RepoItem = ({ project, popularProjects, setPopularProjects, viewLaterList,
         })
 
         if(e.target.checked === true) {
-            viewLaterList !== []
-                ? setViewLaterList([...viewLaterList, targetItem])
-                : setViewLaterList([targetItem])
-        } else if (e.target.checked === false) {
-            setViewLaterList([...viewLaterList.filter(listItem => listItem.name !== targetItem.name)])
+            stagingList !== []
+                ? setStagingList(prevState => {
+                    return [...prevState, targetItem]
+                })
+                : setStagingList([targetItem])
+        }  else if (e.target.checked === false) {
+            setStagingList([...stagingList.filter(listItem => listItem.name !== targetItem.name)])
         }
     } 
 
@@ -32,7 +35,7 @@ const RepoItem = ({ project, popularProjects, setPopularProjects, viewLaterList,
     return (
         <li value={project.name} className="Project-Item">
             <FormControlLabel
-                control={<Checkbox name={project.name} onChange={handleChange}/>}
+                control={<Checkbox name={project.name} checked={project.checked} onChange={handleChange}/>}
             />
             <p>{project.name}</p>
             <p>{project.forks_count}</p>
@@ -46,8 +49,8 @@ RepoItem.propTypes = {
     project: PropTypes.object,
     popularProjects: PropTypes.array,
     setPopularProjects: PropTypes.func,
-    viewLaterList: PropTypes.array,
-    setViewLaterList: PropTypes.func
+    stagingList: PropTypes.array,
+    setStagingList: PropTypes.func,
 };
 
 export default RepoItem;

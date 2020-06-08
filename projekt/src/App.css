@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   display: grid;
-  grid-template-columns: 3fr 2fr;
 }
 
 .Data-Wrapper {
@@ -10,10 +9,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90vw;
+    margin: auto;
+
 }
 
 .Local-Wrapper {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    width: 90vw;
+    margin: auto;
+}
+
+.Add-Container {
+    position: fixed;
+    bottom: 10px;
 }
 
 .Name {

@@ -36,10 +36,9 @@ const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName}) => {
               <Paper variant="outlined">
                 {item.name}
                 <Button variant="contained" data-value={item.name} onClick={handleClick}>toggle view</Button>
-                {/* <Button variant="contained" data-value={item.name} color="secondary" startIcon={<DeleteIcon />} onClick={deleteItem}>delete</Button> */}
                 {
                   item.detailedView === true 
-                    ? <DetailedView project={item} deleteItem={deleteItem} /> /* <p>{item.stargazers_count}</p> */
+                    ? <DetailedView project={item} deleteItem={deleteItem} />
                     : ""
                 }
               </Paper>

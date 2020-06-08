@@ -1,13 +1,27 @@
-import React from "react";
-/* import { useFormik } from "formik"; */
+import React, {useState} from "react";
 import PropTypes from "prop-types";
-/* import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
-import Grid from "@material-ui/core/Grid"; */
 import RepoItem from "./RepoItem.jsx"
+import Button from "@material-ui/core/Button";
 
 const RepoViewer = ({popularProjects, setPopularProjects, filterByName, viewLaterList, setViewLaterList}) => {
+
+  const [stagingList, setStagingList] = useState([]);
+  
+  const handleClick = (e) => {
+    viewLaterList.includes()
+    setViewLaterList(prev => {
+      return [...prev, ...stagingList]
+    })
+    setStagingList([])
+    setPopularProjects((prevState) => {
+      return prevState.map((item) => {
+        return item.checked === true
+          ? { ...item, checked: false }
+          : item;
+      });
+    });
+  }
+
   return (
     <form>
         <ul className="Projects-Wrapper">
@@ -26,12 +40,23 @@ const RepoViewer = ({popularProjects, setPopularProjects, filterByName, viewLate
                   id={project.id}
                   popularProjects={popularProjects}
                   setPopularProjects={setPopularProjects}
-                  viewLaterList={viewLaterList}
-                  setViewLaterList={setViewLaterList} 
+                  stagingList={stagingList}
+                  setStagingList={setStagingList}
                 />
               ))
             }
         </ul>
+        {
+          stagingList.length > 0
+            ? 
+              <div className="Add-Container">
+                <Button variant="contained" onClick={handleClick}>
+                  Add to view later
+                </Button>
+              </div>
+            : ""
+        }
+        
     </form>
   );
 };
