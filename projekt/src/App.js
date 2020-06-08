@@ -19,7 +19,8 @@ function App() {
   const [searchName, setSearchName] = useState('');
   const [searchLanguage, setSearchLanguage] = useState('javascript');
   const [searchOrder, setSearchOrder] = useState('desc');
-  const [viewLaterList, setViewLaterList] = useState([])
+  const [viewLaterList, setViewLaterList] = useState([]);
+  const [stagingList, setStagingList] = useState([]);
 
 
   useEffect(() => {
@@ -57,6 +58,8 @@ function App() {
                 filterByName={filterByName}
                 viewLaterList={viewLaterList}
                 setViewLaterList={setViewLaterList}
+                stagingList={stagingList}
+                setStagingList={setStagingList}
               />
             </div>
           </Route>

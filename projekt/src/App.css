@@ -49,3 +49,13 @@
     list-style: none;
     display: grid;
 }
+
+.Detailed-View {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.Creators-Avatar {
+    height: 80px;
+    width: auto;
+}

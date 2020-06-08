@@ -6,10 +6,12 @@ import EditIcon from "@material-ui/icons/Edit";
 
 const DetailedView = ({project, deleteItem}) => {
     return (
-        <>
+        <div className="Detailed-View">
             <p>Stars {project.stargazers_count}</p>
             <p>Forks {project.forks_count}</p>
             <p>Description {project.description}</p>
+            <p>{project.owner.login}</p>
+            <img className="Creators-Avatar" src={project.owner.avatar_url} alt="profile pic" />
             <Button
                 variant="contained"
                 data-value={project.name}
@@ -27,7 +29,7 @@ const DetailedView = ({project, deleteItem}) => {
                 >
                 delete
             </Button>
-        </>
+        </div>
     )
 }
 

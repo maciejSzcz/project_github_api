@@ -1,14 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import RepoItem from "./RepoItem.jsx"
 import Button from "@material-ui/core/Button";
 
-const RepoViewer = ({popularProjects, setPopularProjects, filterByName, viewLaterList, setViewLaterList}) => {
+const RepoViewer = ({popularProjects, setPopularProjects, filterByName, viewLaterList, setViewLaterList, stagingList, setStagingList}) => {
 
-  const [stagingList, setStagingList] = useState([]);
-  
   const handleClick = (e) => {
-    viewLaterList.includes()
+    /* viewLaterList.includes() */
     setViewLaterList(prev => {
       return [...prev, ...stagingList]
     })
@@ -38,6 +36,7 @@ const RepoViewer = ({popularProjects, setPopularProjects, filterByName, viewLate
                   key={project.name}
                   project={project}
                   id={project.id}
+                  viewLaterList={viewLaterList}
                   popularProjects={popularProjects}
                   setPopularProjects={setPopularProjects}
                   stagingList={stagingList}
@@ -67,6 +66,8 @@ RepoViewer.propTypes = {
   filterByName: PropTypes.string,
   viewLaterList: PropTypes.array,
   setViewLaterList: PropTypes.func,
+  stagingList: PropTypes.array,
+  setStagingList: PropTypes.func,
 }
 
 export default RepoViewer;
