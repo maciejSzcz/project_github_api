@@ -42,6 +42,11 @@
     margin: 0;
     padding: 0;
 }
+.Edit-Form {
+    grid-column: 1 / 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
 .Project-Item {
     display: grid;

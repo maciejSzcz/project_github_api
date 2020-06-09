@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import {useFormik} from "formik";
 import Button from "@material-ui/core/Button";
@@ -6,8 +6,13 @@ import TextField from "@material-ui/core/TextField";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import md5 from "js-md5";
 
 const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
+    const [languages] = useState(["javascript", "scala", "python"]);
+
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -15,6 +20,7 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
             stargazers_count: 0,
             description: "",
             language: "javascript",
+            checkbox: false,
         },
         onSubmit: (e, { resetForm }) => {
             const newRepo = {
@@ -23,11 +29,10 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
                 stargazers_count: e.stargazers_count,
                 description: e.description,
                 owner: {
-                    login: 'none',
-                    avatar_url: '#',
+                    login: 'local-user',
+                    avatar_url: `http://www.gravatar.com/avatar/${md5(e.name)}?d=identicon&s=80`,
                 },
             };
-            console.log(e.language)
             viewLaterList !== []
                 ? setViewLaterList([...viewLaterList, newRepo])
                 : setViewLaterList([newRepo]);
@@ -71,10 +76,20 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
                 value={formik.values.language}
                 onChange={formik.handleChange}
             >
-                <MenuItem value="javascript" label="javascript">javascript</MenuItem>
-                <MenuItem value="python" label="python">python</MenuItem>
-                <MenuItem value="scala" label="scala">scala</MenuItem>
+                {
+                    languages.map(language => (
+                        <MenuItem value={language} key={language} label={language}>{language}</MenuItem>
+                    ))
+                }
             </Select>
+                <FormControlLabel
+                    control={<Checkbox
+                        name="checkbox"
+                        checked={formik.values.checkbox}
+                        onChange={formik.handleChange}
+                    />}
+                label="costam"
+            />  
             <Button
                 variant="contained"
                 type={"submit"}
