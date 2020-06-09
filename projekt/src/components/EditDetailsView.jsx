@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 const EditDetailsView = ({project, setViewLaterList, setEditView}) => {
     const formik = useFormik({
         initialValues: {
+            name: project.name,
+            id: project.id,
             forks_count: project.forks_count,
             stargazers_count: project.stargazers_count,
             description: project.description,
@@ -17,7 +19,7 @@ const EditDetailsView = ({project, setViewLaterList, setEditView}) => {
         onSubmit: (e) => {
           setViewLaterList(prevState => {
             return prevState.map(item => {
-              return item.name === e.name ? {...item, name: e.name, forks_count: e.forks_count, stargazers_count: e.stargazers_count, description: e.description, owner: {...item.owner, login: e.owner.login}} : item
+              return item.id === e.id ? {...item, name: e.name, forks_count: e.forks_count, stargazers_count: e.stargazers_count, description: e.description, owner: {...item.owner, login: e.owner.login}} : item
             })
           })
           setEditView(false)

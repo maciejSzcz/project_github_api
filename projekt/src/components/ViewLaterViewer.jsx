@@ -5,8 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import AddLocalRepo from "./AddLocalRepo.jsx"
 import DetailedView from "./DetailedView.jsx"
 
-const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName}) => {
-
+const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName, sorting}) => {
 
   const handleClick = (e) => {
     const name = e.currentTarget.attributes["data-value"].nodeValue;
@@ -26,6 +25,11 @@ const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName}) => {
     <ul className="ViewLater-Wrapper">
       {
         viewLaterList
+          .sort((a, b) => {
+            return sorting === true
+              ? b.stargazers_count - a.stargazers_count
+              : 0
+          })
           .filter((project) =>{
             return filterByName === ""
               ? project
@@ -58,6 +62,7 @@ ViewLaterViewer.propTypes = {
   viewLaterList: PropTypes.array, 
   setViewLaterList: PropTypes.func,
   filterByName: PropTypes.string,
+  sorting: PropTypes.bool,
 }
 
 export default ViewLaterViewer;

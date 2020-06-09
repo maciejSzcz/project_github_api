@@ -101,7 +101,7 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
                 variant="contained"
                 color="secondary"
                 startIcon={<DeleteIcon />}
-                onClick={e => formik.resetForm()}
+                onClick={() => formik.resetForm()}
             >
                 Clear
             </Button>

@@ -21,6 +21,7 @@ function App() {
   const [searchOrder, setSearchOrder] = useState('desc');
   const [viewLaterList, setViewLaterList] = useState([]);
   const [stagingList, setStagingList] = useState([]);
+  const [sorting, setSorting] = useState(false);
 
 
   useEffect(() => {
@@ -55,7 +56,6 @@ function App() {
               <RepoViewer
                 popularProjects={popularProjects}
                 setPopularProjects={setPopularProjects}
-                filterByName={filterByName}
                 viewLaterList={viewLaterList}
                 setViewLaterList={setViewLaterList}
                 stagingList={stagingList}
@@ -71,11 +71,14 @@ function App() {
               <p className="Name">View Later</p>
               <SearchLocal
                 setFilterByName={setFilterByName}
+                sorting={sorting}
+                setSorting={setSorting}
               />
               <ViewLaterViewer
                 viewLaterList={viewLaterList}
                 setViewLaterList={setViewLaterList}
                 filterByName={filterByName}
+                sorting={sorting}
               />
             </div>
           </Route>

@@ -8,6 +8,7 @@ import EditDetailsView from "./EditDetailsView.jsx"
 
 const DetailedView = ({project, deleteItem, setViewLaterList}) => {
     const [editView, setEditView] = useState(false)
+    
     return (
         <div className="Detailed-View">
             {
@@ -34,7 +35,7 @@ const DetailedView = ({project, deleteItem, setViewLaterList}) => {
                         ? <ArrowBackIosIcon />
                         : <EditIcon />
                 }
-                onClick={e => setEditView(prevState => !prevState)}
+                onClick={() => setEditView(prevState => !prevState)}
                 >
                 {editView === true 
                     ? "discard"

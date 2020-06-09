@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
+import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -38,6 +39,12 @@ const SearchForm = ({setSearchName, setSearchLanguage, setSearchOrder}) => {
             <Button type={"submit"}>Search</Button>
         </form>
     )
+}
+
+SearchForm.propTypes = {
+    setSearchName: PropTypes.func,
+    setSearchLanguage: PropTypes.func,
+    setSearchOrder: PropTypes.func,
 }
 
 export default SearchForm;

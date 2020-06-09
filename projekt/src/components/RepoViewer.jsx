@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import RepoItem from "./RepoItem.jsx"
 import Button from "@material-ui/core/Button";
 
-const RepoViewer = ({popularProjects, setPopularProjects, filterByName, viewLaterList, setViewLaterList, stagingList, setStagingList}) => {
+const RepoViewer = ({popularProjects, setPopularProjects, viewLaterList, setViewLaterList, stagingList, setStagingList}) => {
 
-  const handleClick = (e) => {
-    /* viewLaterList.includes() */
+  const handleClick = () => {
     setViewLaterList(prev => {
       return [...prev, ...stagingList]
     })
@@ -55,7 +54,6 @@ const RepoViewer = ({popularProjects, setPopularProjects, filterByName, viewLate
               </div>
             : ""
         }
-        
     </form>
   );
 };
