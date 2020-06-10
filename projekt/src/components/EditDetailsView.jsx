@@ -16,6 +16,19 @@ const EditDetailsView = ({project, setViewLaterList, setEditView}) => {
               login: project.owner.login
             }
         },
+        validate(values) {
+            const errors = {
+            }
+            const numbersRegex = /^\d+$/;
+            if(!numbersRegex.test(values.forks_count)) {
+                errors.forks_count = "Must be a number"
+            }
+
+            if(!numbersRegex.test(values.stargazers_count)) {
+                errors.stargazers_count = "Must be a number"
+            }
+            return errors
+        },
         onSubmit: (e) => {
           setViewLaterList(prevState => {
             return prevState.map(item => {
@@ -29,34 +42,45 @@ const EditDetailsView = ({project, setViewLaterList, setEditView}) => {
     return (
       <form onSubmit={formik.handleSubmit} className="Edit-Form">
         <TextField
+          label="Creator"
+          name="owner.login"
+          value={formik.values.owner.login}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <TextField
           label="Stars"
           name="stargazers_count"
           value={formik.values.stargazers_count}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.errors.stargazers_count ? true : false}
+          helperText={formik.errors.stargazers_count ? formik.errors.stargazers_count : ""}
         />
         <TextField
           label="Forks"
           name="forks_count"
           value={formik.values.forks_count}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.errors.forks_count ? true : false}
+          helperText={formik.errors.forks_count ? formik.errors.forks_count : ""}
         />
         <TextField
           label="Description"
           name="description"
           value={formik.values.description}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
           multiline
         />
-        <TextField
-          label="Login"
-          name="owner.login"
-          value={formik.values.owner.login}
-          onChange={formik.handleChange}
-        />
+        <p>Language: <br />{project.language}</p>
+        <p>Archived: <br />{project.archived === true ? "True" : "False"}</p>
         <Button
           variant="contained"
           type={"submit"}
           color="primary"
+          className="Change-Details-Button"
         >
           change
         </Button>

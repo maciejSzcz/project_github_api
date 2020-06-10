@@ -11,6 +11,7 @@ const DetailedView = ({project, deleteItem, setViewLaterList}) => {
     
     return (
         <div className="Detailed-View">
+            <img className="Creators-Avatar" src={project.owner.avatar_url} alt="profile pic" />
             {
                 editView === true
                     ? <EditDetailsView 
@@ -19,17 +20,19 @@ const DetailedView = ({project, deleteItem, setViewLaterList}) => {
                         setEditView={setEditView}
                     />
                     : <>
-                        <p>Stars: {project.stargazers_count}</p>
-                        <p>Forks: {project.forks_count}</p>
-                        <p>Description: {project.description}</p>
-                        <p>Creator: {project.owner.login}</p>
+                        <p>Creator: <br />{project.owner.login}</p>
+                        <p>Stars: <br />{project.stargazers_count}</p>
+                        <p>Forks: <br />{project.forks_count}</p>
+                        <p>Description: <br />{project.description}</p>
+                        <p>Language: <br />{project.language}</p>
+                        <p>Archived: <br />{project.archived === true ? "True" : "False"}</p>
                     </>
             }
-            <img className="Creators-Avatar" src={project.owner.avatar_url} alt="profile pic" />
             <Button
                 variant="contained"
                 data-value={project.name}
                 color="primary"
+                className="Details-Edit-Button"
                 startIcon={
                     editView === true
                         ? <ArrowBackIosIcon />
@@ -46,6 +49,7 @@ const DetailedView = ({project, deleteItem, setViewLaterList}) => {
                 variant="contained"
                 data-value={project.name}
                 color="secondary"
+                className="Details-Delete-Button"
                 startIcon={<DeleteIcon />}
                 onClick={deleteItem}
                 >
