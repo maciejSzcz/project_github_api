@@ -60,7 +60,7 @@ const AddLocalRepo = ({viewLaterList, setViewLaterList}) => {
                 },
             };
             viewLaterList !== []
-                ? setViewLaterList([...viewLaterList, newRepo])
+                ? setViewLaterList(prevState => [...prevState, newRepo])
                 : setViewLaterList([newRepo]);
 
             resetForm();

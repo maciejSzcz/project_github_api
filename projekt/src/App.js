@@ -79,6 +79,7 @@ function App() {
                 setViewLaterList={setViewLaterList}
                 filterByName={filterByName}
                 sorting={sorting}
+                setPopularProjects={setPopularProjects}
               />
             </div>
           </Route>

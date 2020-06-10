@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import AddLocalRepo from "./AddLocalRepo.jsx"
 import DetailedView from "./DetailedView.jsx"
 
-const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName, sorting}) => {
+const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName, sorting, setPopularProjects}) => {
 
   const handleClick = (e) => {
     const name = e.currentTarget.attributes["data-value"].nodeValue;
@@ -19,6 +19,14 @@ const ViewLaterViewer = ({viewLaterList, setViewLaterList, filterByName, sorting
   const deleteItem = (e) => {
     const name = e.currentTarget.attributes["data-value"].nodeValue;
     setViewLaterList([...viewLaterList.filter((listItem) => listItem.name !== name)]);
+
+    setPopularProjects(prevState => {
+        return prevState.map(item => {
+            return item.name === name
+                ? { ...item, checked: false }
+                : item;
+        });
+    })
   }
 
   return (
@@ -63,6 +71,7 @@ ViewLaterViewer.propTypes = {
   setViewLaterList: PropTypes.func,
   filterByName: PropTypes.string,
   sorting: PropTypes.bool,
+  setPopularProjects: PropTypes.func,
 }
 
 export default ViewLaterViewer;
