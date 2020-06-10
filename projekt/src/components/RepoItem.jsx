@@ -46,7 +46,7 @@ const RepoItem = ({ project, viewLaterList, popularProjects, setPopularProjects,
             <p>{project.name}</p>
             <p>{project.forks_count}</p>
             <p>{project.stargazers_count}</p>
-            <Button variant="contained" href={project.html_url}>link</Button>
+            <Button variant="contained" color="primary" href={project.html_url}>link</Button>
         </li>
     );
 };
