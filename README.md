@@ -1,3 +1,5 @@
+This is a project created for a JavaScript language classes at the University of Gdansk. It uses GitHub API v3 and it allows the user to find repositories, add them to a view later list, as well as editing them, adding imaginary repositories (useless functionality, but it was enforced by the project requirements)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -11,10 +13,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
 
 ### `yarn build`
 
