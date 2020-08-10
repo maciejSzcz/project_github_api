@@ -1,4 +1,6 @@
-This is a project created for a JavaScript language classes at the University of Gdansk. It uses GitHub API v3 and it allows the user to find repositories, add them to a view later list, as well as editing them, adding imaginary repositories (useless functionality, but it was enforced by the project requirements)
+This is a project created for JavaScript language classes at the University of Gdansk. It uses GitHub API v3 and it allows the user to find repositories, add them to a view later list, as well as editing them, adding imaginary repositories (useless functionality, but it was enforced by the project requirements)
+
+It is deployed on netlify at https://githubapiproject.netlify.app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
